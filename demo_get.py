@@ -11,7 +11,7 @@ def get_example():
     # Retrieve query parameters
     name = request.args.get("name", "Guest")
     age = request.args.get("age", "unknown")
-    return jsonify({"message": f"Hello, {name}!", "age": age})
+    return jsonify({"message": "Hello, "+ name + "!", "age": age})
 
 if __name__ == "__main__":
     app.run(debug=True)
