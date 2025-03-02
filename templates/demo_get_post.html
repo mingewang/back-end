@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+    // to get the data from server using http GET
+    const url = "http://127.0.0.1:5000/get_example";
+    fetch(url)
+        .then(response => {
+            console.log("reponse is: ", response);
+            if (!response.ok) {
+                throw new Error("Network response was not ok " + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // this data is response.json
+            console.log("Get User Data:", data);
+            alert("Get User Data:" + JSON.stringify(data));
+        })
+        .catch(error => console.error("Fetch error:", error));
+
+    // post example:
+    const post_url = "http://127.0.0.1:5000/post_example";
+    const postData = {
+        name: "My New Post",
+        age: 11
+    };
+
+    fetch(post_url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(postData)
+    })
+        .then(response => response.json())
+        .then(data => {
+            // this data is response.json
+            console.log("Post User Data:", data);
+            alert("Post User Data, get response:" + JSON.stringify(data));
+        })
+        .catch(error => console.error("Error:", error));
+
+
+    </script>
+    
+</body>
+</html>
