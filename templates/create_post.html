@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Post</title>
+</head>
+<body>
+    <h1>Create a New Post</h1>
+    <form method="POST">
+        User:
+        <select name="user_id">
+            {% for user in users %}
+                <option value="{{ user.id }}">{{ user.name }}</option>
+            {% endfor %}
+        </select><br>
+        Title: <input type="text" name="title" required><br>
+        Content:<br><textarea name="content" required></textarea><br>
+        <button type="submit">Create Post</button>
+    </form>
+    <a href="/">Back to Home</a>
+</body>
+</html>
