@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create todo</title>
+</head>
+<body>
+    <h1>Create a New todo for {{ user.name}}</h1>
+    <form method="POST">
+        <!-- add hidden user id     --> 
+        <input type="hidden" name="user_id" value="{{ user.id }}">
+
+        Title: <input type="text" name="title" required><br>
+        Content:<br><textarea name="content" required></textarea><br>
+        <button type="submit">Create Post</button>
+    </form>
+    <a href="/">Back to Home</a>
+</body>
+</html>
